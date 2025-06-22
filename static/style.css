@@ -22,6 +22,7 @@ nav {
     align-items: center;
     padding: 0 5%;
     height: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .logo {
@@ -41,8 +42,7 @@ nav {
     display: inline-block;
     text-decoration: none;
     color: #1a5302;
-    font-weight: bold;
-    font-size: 18px;
+    font-size: 24px;
     padding: 10px 6px; 
     position: relative;
     transition: all 0.3s ease;
@@ -68,7 +68,7 @@ nav {
     transform: translateX(-50%);
     border-radius: 5px;
     overflow: hidden;
-    top: 80px; 
+    top: 50px; 
 }
 
 .dropdown-content a {
