@@ -1,8 +1,17 @@
-RewriteEngine On
+<IfModule mod_rewrite.c>
+  Options +FollowSymLinks -MultiViews
+  RewriteEngine On
+  RewriteBase /
 
-RewriteCond %{THE_REQUEST} \s/([^\s]+)\.html [NC]
-RewriteRule ^ %1 [R=301,L]
+  # 1. Redirect any /index.html (root or subdirectory) → directory "/"
+  RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([a-zA-Z0-9_-]+)$ $1.html [L]
+  # 2. Redirect requests for .html files → clean URLs (strip .html)
+  RewriteCond %{THE_REQUEST} \s/([^\s]+)\.html [NC]
+  RewriteRule ^ %1 [R=301,L]
+
+  # 3. Internally serve .html for clean URL requests
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^([^.]+)/?$ $1.html [L]
+</IfModule>

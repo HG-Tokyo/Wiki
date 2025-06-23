@@ -133,6 +133,7 @@ body {
     align-items: center;
     padding: 0px;
     background-color: #dbe8bb;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.012);
 }
 
 
@@ -210,18 +211,21 @@ body {
     border-radius: 0.5rem;
     overflow: hidden;
     margin-top: 0.5rem;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.012);
 }
 
-.dropdown-menu:hover .dropdown-icon {
+@media (min-width: 901px) {
+    .dropdown-menu:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-menu:hover .dropdown-icon {
     transform: rotate(180deg);
     transition: 200ms;
+    }
 }
 
-.dropdown-menu:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-content a {
+    .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -231,7 +235,7 @@ body {
 }
 
 .dropdown-content a:hover {
-    background-color: #e0f2fe;
+    background-color: #d0ebc8;
 }
 
 .dropdown-menu .dropdown-icon {
@@ -299,7 +303,7 @@ body {
 }
 
 .footer {
-    height: 30vh;
+    height: 40vh;
     background-color: #dbe8bb;
     display: flex;
     justify-content: space-evenly;
@@ -363,3 +367,170 @@ body {
 .sns>img {
     padding-top: 5px;
 }
+
+/* ↓ responsive */
+
+@media (max-width:950px) {
+    .header {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 12vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .logo {
+        height: auto;
+        margin-bottom: 0;
+        width: auto;
+        flex-grow: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo a {
+        height: auto;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+    }
+
+    .logo img {
+        height: 5vh;
+        max-height: 40px;
+        margin-right: 10px;
+    }
+
+    .logo p {
+        font-size: 1.8rem;
+        display: block;
+        margin: 1rem;
+        margin-left: 0;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
+        z-index: 1001;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .hamburger-menu .bar {
+        width: 100%;
+        height: 3px;
+        background-color: #333;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
+        overflow-y: auto;
+        padding-top: 12vh;
+    }
+
+    .nav.nav-open {
+        transform: translateX(0);
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav > li {
+        height: auto;
+        margin: 15px 0 15px 50px;
+        width: fit-content;
+        text-align: center;
+    }
+
+    .nav-link {
+        height: auto;
+        padding: 10px 20px 10px 0;
+        font-size: 1.5rem;
+        display: block;
+        text-align: start;
+    }
+
+    .dropdown-menu {
+        width: 100%;
+        align-items: start;
+    }
+
+    .dropdown-content {
+        position: static;
+        width: 40%;
+        box-shadow: none;
+        border-top: none;
+        background-color: transparent;
+        padding-top: 0;
+        display: none;
+    }
+
+    .dropdown-content.dropdown-open {
+        display: block;
+    }
+    
+    .dropdown-content a {
+        padding: 8px 0 8px 16px;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        text-align: start;
+    }
+
+    .footer {
+        flex-direction: column;
+    }
+
+    #links {
+        width: 90%;
+        height: 200px;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-bottom: 0;
+    }
+
+    #links > li {
+        flex-basis: 90px;
+    }
+    
+    .links {
+        display: block;
+        text-align: center;
+    }
+
+    #sns {
+        margin-top: 10px;
+    }
+}
+
