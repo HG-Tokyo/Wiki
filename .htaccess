@@ -3,14 +3,19 @@
   RewriteEngine On
   RewriteBase /
 
-  # 1. Redirect any /index.html (root or subdirectory) → directory "/"
-  RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
+  # 1. Redirect any case‑variation of "index.html" → clean directory path
+  RewriteCond %{THE_REQUEST} (?i)\s/((?:.+/)?)index\.html [NC]
+  RewriteRule ^ /%1 [R=301,L]
 
-  # 2. Redirect requests for .html files → clean URLs (strip .html)
+  # 2. Redirect "/index" (any case) → "/"
+  RewriteCond %{THE_REQUEST} (?i)\s/+index [NC]
+  RewriteRule ^(?i:index)$ / [R=301,L]
+
+  # 3. Strip ".html" from non‑index pages
   RewriteCond %{THE_REQUEST} \s/([^\s]+)\.html [NC]
   RewriteRule ^ %1 [R=301,L]
 
-  # 3. Internally serve .html for clean URL requests
+  # 4. Serve .html files internally for clean URLs
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^([^.]+)/?$ $1.html [L]
