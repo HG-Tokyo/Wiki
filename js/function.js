@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector("body").style.visibility = "hidden";
+    document.querySelector("body").style.paddingTop = 0;
+    document.querySelector("#loader").style.visibility = "visible";
+    setTimeout(showPage, 1500);
+    function showPage() {
+        document.querySelector("#loader").style.display = "none";
+        document.querySelector("body").style.paddingTop = "12vh";
+        document.querySelector("body").style.visibility = "visible";
+    }
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const nav = document.querySelector('.nav');
     const dropdownMenus = document.querySelectorAll('.dropdown-menu');
@@ -12,13 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', (event) => {
             const parentLi = link.closest('li');
             const isDropdownToggle = parentLi && parentLi.classList.contains('dropdown-menu');
-
-            if (!isDropdownToggle || window.innerWidth > 900) {
-                if (nav.classList.contains('nav-open')) {
-                    nav.classList.remove('nav-open');
-                    hamburgerMenu.classList.remove('active');
-                }
-            }
         });
     });
 
@@ -27,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const dropdownContent = dropdown.querySelector('.dropdown-content');
 
         dropdownLink.addEventListener('click', function(event) {
-            if (window.innerWidth <= 900) {
+            
                 event.preventDefault();
                 dropdownContent.classList.toggle('dropdown-open');
                 dropdownMenus.forEach(otherDropdown => {
@@ -35,17 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         otherDropdown.querySelector('.dropdown-content').classList.remove('dropdown-open');
                     }
                 });
-            }
         });
-    });
-
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 900) {
-            nav.classList.remove('nav-open');
-            hamburgerMenu.classList.remove('active');
-            dropdownMenus.forEach(dropdown => {
-                dropdown.querySelector('.dropdown-content').classList.remove('dropdown-open');
-            });
-        }
     });
 });
