@@ -1,0 +1,105 @@
+.banner {
+    height: 88vh;
+    width: 100%;
+    position: fixed;
+    top: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    background-color: forestgreen;
+}
+
+.pageTitle {
+    text-align: center;
+    font-size: 8rem;
+}
+
+.content {
+    margin-top: 100vh;
+    background-color: #E9FFD0;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.menu {
+    position: sticky;
+    top: calc(12vh + 30px);
+    /* background-color:lightgreen; */
+    width: 350px;
+    height: 450px;
+    margin: 30px;
+}
+
+#menuTitle {
+    margin: 20px;
+    font-size: 2rem;
+}
+
+#menuList {
+    list-style-type: none;
+}
+
+#menuList li {
+    padding: 10px 0 10px 0;
+}
+
+#menuList a {
+    text-decoration: none;
+}
+
+.article {
+    width: 65%;
+    /* background-color: greenyellow; */
+    margin: 30px;
+    padding: 30px;
+    height: max-content;
+}
+
+.article h2 {
+    font-size: 2.5rem;
+    margin-top: 10px;
+}
+
+.article h3 {
+    font-size: 2rem;
+    margin-top: 10px;
+}
+
+.article p, li {
+    font-size: 1.3rem;
+}
+
+.imageHolder {
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.imageHolder p {
+    font-size: 1rem;
+}
+
+.lowerImg {
+    max-height: 400px;
+    max-width: 400px;
+}
+
+.upperImg {
+    max-width: 300px;
+    height: auto;
+}
+
+.cc {
+    text-align: center;
+}
+
+.imgCC {
+    padding: 30px;
+    max-width: 300px;
+}

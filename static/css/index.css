@@ -14,7 +14,7 @@
     animation: move 3000ms ease;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
-    z-index: 2;
+    z-index: 1;
     position: relative;
     animation-delay: 1.6s;
     width: 250px;
@@ -35,7 +35,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    z-index: 0;
     margin-right: 550px;
 
 }
