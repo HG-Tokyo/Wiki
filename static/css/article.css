@@ -17,7 +17,7 @@
 
 .content {
     margin-top: 100vh;
-    background-color: #E9FFD0;
+    background-color: #e9ffd0;
     padding: 30px;
     display: flex;
     justify-content: center;
@@ -37,16 +37,31 @@
     font-size: 2rem;
 }
 
-#menuList {
+.menuList {
     list-style-type: none;
 }
 
-#menuList li {
+.menuList .nested a {
+    font-size: 1.1rem;
+    color: black
+}
+
+.menuList .nested li {
+    padding: 5px 0 5px 0;
+}
+
+.menuList li {
     padding: 10px 0 10px 0;
 }
 
-#menuList a {
+.menuList a {
     text-decoration: none;
+    color: black
+}
+
+.menuList a.active {
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .article {
@@ -60,6 +75,7 @@
 .article h2 {
     font-size: 2.5rem;
     margin-top: 10px;
+    scroll-margin-top: calc(12vh + 30px);
 }
 
 .article h3 {
@@ -67,7 +83,8 @@
     margin-top: 10px;
 }
 
-.article p, li {
+.article p,
+li {
     font-size: 1.3rem;
 }
 
