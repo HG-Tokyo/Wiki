@@ -59,6 +59,10 @@
     color: black
 }
 
+.menuList a:hover {
+    text-decoration: underline;
+}
+
 .menuList a.active {
     font-weight: bold;
     text-decoration: underline;
@@ -75,12 +79,15 @@
 .article h2 {
     font-size: 2.5rem;
     margin-top: 10px;
-    scroll-margin-top: calc(12vh + 30px);
 }
 
 .article h3 {
     font-size: 2rem;
     margin-top: 10px;
+}
+
+.section {
+    scroll-margin-top: calc(12vh + 30px);
 }
 
 .article p,

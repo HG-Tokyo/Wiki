@@ -1,6 +1,5 @@
 .main {
     width: 100%;
-    height: 200vh;
 }
 
 .banner {
@@ -57,9 +56,65 @@
     animation-iteration-count: 1;
 }
 
-.content {
+.animation {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.sticky-wrapper {
+    position: relative;
+    /* Height is N times the viewport height, where N is the number of sections */
+    /* This gives us space to scroll through the sections */
+    height: 352vh;
+}
+
+/* The element that sticks to the top while we scroll through the wrapper */
+.sticky-content {
+    position: sticky;
+    top: 12vh;
+    height: 88vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Styling for the individual sections that will blink */
+.blink-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    /* Animation properties */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s;
+}
+
+/* The active class makes the section visible */
+.blink-section.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+#section-1 {
+    background-color: oklch(70.4% 0.191 22.216);
+}
+
+#section-2 {
+    background-color: oklch(87.1% 0.15 154.449);
+}
+
+#section-3 {
+    background-color: oklch(74.6% 0.16 232.661);
+}
+
+#section-4 {
+    background-color: oklch(70.2% 0.183 293.541);
 }
